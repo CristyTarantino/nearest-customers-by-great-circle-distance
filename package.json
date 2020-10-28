@@ -1,0 +1,12 @@
+{
+  "name": "nearest_customers",
+  "version": "1.0.0",
+  "description": "Calculate any customer within 100km of Intercom's Dublin office",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.mjs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Cristina Tarantino",
+  "license": "ISC"
+}
