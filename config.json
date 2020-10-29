@@ -1,0 +1,9 @@
+{
+	"destinationCoordinates": {
+		"latitude": "53.339428",
+		"longitude": "-6.257664"
+	},
+	"maxDistanceThreshold": 100,
+	"inputSource": "assets/input/customers.txt",
+	"outputDestination": "assets/output/customers.txt"
+}
