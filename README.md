@@ -4,12 +4,12 @@
  
  TODO
  
-   * [ ] get coord and max from config
+   * [X] get coord and max from config
    * [ ] Write Tests
-   * [ ] Add ESLint
-   * [ ] Coverage
-   * [ ] Code Quality check
-   * [ ] Add to git
+   * [X] Add ESLint
+   * [X] Coverage
+   * [X] Code Quality check
+   * [X] Add to git
    * [ ] Submit
    * [ ] Research sin cos etc / https://dzone.com/articles/introduction-to-immutablejs-and-functional-program
 
