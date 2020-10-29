@@ -14,7 +14,8 @@
    * [ ] Research sin cos etc / https://dzone.com/articles/introduction-to-immutablejs-and-functional-program
 
 # The Test
-   ####1. Technical problem
+
+1. Technical problem
 
 We have some customer records in a text file (customers.txt) -- one customer per line, JSON lines formatted. 
 We want to invite any customer within 100km of our Dublin office for some food and drinks on us. 
@@ -43,7 +44,8 @@ Each submission must meet the following requirements:
 * A file explaining how to install, how to execute the code and how to run tests. 
 We may not be familiar with the language/framework you used and this helps us to evaluate it.
 
-####2. Proudest Achievement
+2. Proudest Achievement
+
 What's your proudest achievement? It can be a personal project or something you've worked on professionally. 
 Just a short paragraph is fine, but I'd love to know why you're proud of it, what impact it had (If any) and any insights you took from it.
 Here is our blog on [Take Home Test Assessment](https://www.intercom.com/blog/engineer-interview-assignments/)
