@@ -1,5 +1,3 @@
-// const checkArgs = require('./index').__get__('checkArgs');
-//
 // describe('app', () => {
 //   describe('checkArgs', () => {
 //     test('1 - checkArgs', async () => {

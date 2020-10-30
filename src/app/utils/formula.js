@@ -13,7 +13,9 @@ const deg2rad = (deg) => {
     return deg * (Math.PI / PI_EQUIVALENT_IN_DEG);
   }
 
-  throw new Error('The value provided is not a valid latitude or longitude');
+  throw new Error(
+    `The value provided is not a valid latitude or longitude.\nThe incorrect value is: \n${deg}\n`,
+  );
 };
 
 /**
@@ -45,7 +47,9 @@ const getCentralAngle = (degLatA, degLonA, degLatB, degLonB) => {
     );
   }
 
-  throw new Error('The values provided are not valid latitude or longitude');
+  throw new Error(
+    `The values provided are not valid latitude or longitude\nThe incorrect value is: \n${degLatA}, ${degLonA}, ${degLatB}, ${degLonB}\n`,
+  );
 };
 
 /**

@@ -1,9 +1,8 @@
-const path = require('path');
 const {
   validateCoordinates,
-  validatePath,
   validateObjectSchema,
-  configsSchema,
+  validateArray,
+  validateNumber,
 } = require('./validation');
 
 describe('validation', () => {
@@ -63,61 +62,71 @@ describe('validation', () => {
     });
   });
 
-  describe('validatePath', () => {
-    test('1 - validatePath to be false', () => {
-      expect(validatePath('./file_that_does_not_exists')).toBeFalsy();
-    });
-
-    test('2 - validatePath to be true', () => {
-      expect(validatePath(path.join(process.cwd(), '/src'))).toBeTruthy();
-    });
-  });
-
   describe('validateObjectSchema', () => {
+    const schema = {
+      name: (value) => /^([A-Z][a-z\-]* )+[A-Z][a-z\-]*( \w+\.?)?$/.test(value),
+      age: (value) => parseInt(value, 10) === Number(value) && value >= 18,
+      phone: (value) => /^(\+?\d{1,2}-)?\d{3}-\d{3}-\d{4}$/.test(value),
+    };
+
     test('1 - validateObjectSchema', () => {
       const object = {
-        destinationCoordinates: {
-          latitude: '53.339428',
-          longitude: '-6.257664',
-        },
-        maxDistanceThreshold: 100,
-        inputSource: 'assets/input/customers.txt',
-        outputDestination: 'assets/output/customers.txt',
+        name: 'John Doe',
+        age: '',
+        phone: '123-456-7890',
       };
 
-      expect(validateObjectSchema(object, configsSchema)).toBeTruthy();
+      expect(validateObjectSchema(object, schema)).toBeTruthy();
     });
 
     test('2 - validatePath to be false', () => {
       const object = {
-        maxDistanceThreshold: 100,
-        inputSource: 'assets/input/customers.txt',
-        outputDestination: 'assets/output/customers.txt',
+        age: '',
+        phone: '123-456-7890',
       };
 
-      const output = validateObjectSchema(object, configsSchema);
-      expect(output[0]).toStrictEqual(
-        new Error('destinationCoordinates is invalid.'),
-      );
+      const output = validateObjectSchema(object, schema);
+      expect(output[0]).toStrictEqual(new Error('name is invalid.'));
     });
 
     test('3 - validatePath to have correct messages', () => {
-      const object = {
-        destinationCoordinates: {
-          latitude: '53.339428',
-          longitude: '-6.257664',
-        },
-      };
+      const object = {};
 
-      const output = validateObjectSchema(object, configsSchema);
+      const output = validateObjectSchema(object, schema);
 
-      expect(output[0]).toStrictEqual(
-        new Error('maxDistanceThreshold is invalid.'),
-      );
-      expect(output[1]).toStrictEqual(new Error('inputSource is invalid.'));
-      expect(output[2]).toStrictEqual(
-        new Error('outputDestination is invalid.'),
-      );
+      expect(output[0]).toStrictEqual(new Error('name is invalid.'));
+      expect(output[1]).toStrictEqual(new Error('age is invalid.'));
+      expect(output[2]).toStrictEqual(new Error('phone is invalid.'));
+    });
+  });
+
+  describe('validateArray', () => {
+    test('1 - validateArray', () => {
+      expect(validateArray('asdasdas')).toBeFalsy();
+    });
+    test('2 - validateArray', () => {
+      expect(validateArray()).toBeFalsy();
+    });
+    test('3 - validateArray', () => {
+      expect(validateArray('')).toBeFalsy();
+    });
+    test('4 - validateArray', () => {
+      expect(validateArray([])).toBeFalsy();
+    });
+  });
+
+  describe('validateNumber', () => {
+    test('1 - validateNumber', () => {
+      expect(validateNumber('asdasdas')).toBeFalsy();
+    });
+    test('2 - validateNumber', () => {
+      expect(validateNumber()).toBeFalsy();
+    });
+    test('3 - validateNumber', () => {
+      expect(validateNumber('')).toBeFalsy();
+    });
+    test('4 - validateNumber', () => {
+      expect(validateNumber('9.20')).toBeTruthy();
     });
   });
 });

@@ -5,26 +5,36 @@ const {
   getGreatCircleDistance,
 } = require('./formula');
 
-const { readFilesByLine, writeFilesByLine, readFile } = require('./file');
+const {
+  writeFile,
+  readFile,
+  validatePath,
+  readJSONFile,
+  readListLineByLine,
+  writeListLineByLine,
+} = require('./file');
 
 const {
   validateObjectSchema,
-  configsSchema,
-  validatePath,
   validateLatitude,
   validateLongitude,
+  validateArray,
+  validateNumber,
 } = require('./validation');
 
 module.exports = {
-  readFilesByLine,
-  writeFilesByLine,
+  validateNumber,
+  validateArray,
+  readListLineByLine,
+  writeListLineByLine,
+  readJSONFile,
+  writeFile,
   readFile,
   EARTH_RADIUS,
   getCentralAngle,
   deg2rad,
   getGreatCircleDistance,
   validateObjectSchema,
-  configsSchema,
   validatePath,
   validateLatitude,
   validateLongitude,
