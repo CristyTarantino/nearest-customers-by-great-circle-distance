@@ -45,7 +45,7 @@ const readConfig = (config) =>
       .filter((a) => a.startsWith('--config='))
       .toString()
       .split('=')[1]) ||
-  './config.json';
+  './configs/app.config.json';
 
 module.exports = {
   checkConfig,

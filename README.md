@@ -1,17 +1,31 @@
-#Install
+# Getting started
 
  Recommended node version 12.19.0
  
- TODO
+ 1. Make sure you have installed 
+     "node": ">=12.19.0"
+     "npm": ">= 6.14.8"
  
-   * [X] get coord and max from config
-   * [ ] Write Tests
-   * [X] Add ESLint
-   * [X] Coverage
-   * [X] Code Quality check
-   * [X] Add to git
-   * [ ] Submit
-   * [ ] Research sin cos etc / https://dzone.com/articles/introduction-to-immutablejs-and-functional-program
+ 2. Run `npm install`
+ 
+ 3. Run `npm start` to run the script
+ 
+ 4. Run `npm run test` to run tests with coverage
+ 
+# Nice to know
+
+The project uses ES2020,
+
+* eslint for linting, 
+* prettier for formatting, 
+* jest for testing 
+* husky with lint-staged 
+
+to make sure the developer has maintained standards and tests are green before pushing to the branch.
+
+The input and output files are under `assets/input/customer.txt` and `assets/output/customers.txt`.
+
+The constants are in a config file under `configs/app.config.json`.
 
 # The Test
 

@@ -36,10 +36,10 @@ describe('config', () => {
     test('2 - readConfig', () => {
       const jestConfig = ['dsfdsfds'];
 
-      expect(readConfig(jestConfig)).toBe('./config.json');
+      expect(readConfig(jestConfig)).toBe('./configs/app.config.json');
     });
     test('3 - readConfig', () => {
-      expect(readConfig()).toBe('./config.json');
+      expect(readConfig()).toBe('./configs/app.config.json');
     });
   });
 });
