@@ -1,5 +1,7 @@
 const path = require('path');
+
 const {
+  validateArray,
   validateNumber,
   validateObjectSchema,
   validatePath,
@@ -20,7 +22,7 @@ const configsSchema = {
   outputDestination: (value) => typeof value === 'string' && value.length > 0,
 };
 
-const checkConfigs = (configObject) => {
+const checkConfig = (configObject = {}) => {
   const errors = validateObjectSchema(configObject, configsSchema);
 
   if (errors.length) {
@@ -33,15 +35,19 @@ const checkConfigs = (configObject) => {
 
     throw new Error(errorMessage);
   }
+
+  return true;
 };
 
-const readConfig = () =>
-  process.argv
-    .filter((a) => a.startsWith('--config='))
-    .toString()
-    .split('=')[1] || './config.json';
+const readConfig = (config) =>
+  (validateArray(config) &&
+    config
+      .filter((a) => a.startsWith('--config='))
+      .toString()
+      .split('=')[1]) ||
+  './config.json';
 
 module.exports = {
-  checkConfigs,
+  checkConfig,
   readConfig,
 };

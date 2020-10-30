@@ -4,6 +4,9 @@ const {
   getGreatCircleDistance,
 } = require('./formula');
 
+const spy = jest.spyOn(process.stderr, 'write').mockReturnValue();
+const spyOut = jest.spyOn(process.stdout, 'write').mockReturnValue();
+
 describe('formula', () => {
   describe('deg2rad', () => {
     test('1 - deg2rad string', () => {
@@ -67,3 +70,5 @@ describe('formula', () => {
     });
   });
 });
+spy.mockRestore();
+spyOut.mockRestore();

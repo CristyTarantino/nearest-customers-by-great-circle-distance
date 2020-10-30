@@ -6,6 +6,7 @@ const {
 } = require('./formula');
 
 const {
+  deleteFile,
   writeFile,
   readFile,
   validatePath,
@@ -28,6 +29,7 @@ module.exports = {
   readListLineByLine,
   writeListLineByLine,
   readJSONFile,
+  deleteFile,
   writeFile,
   readFile,
   EARTH_RADIUS,
